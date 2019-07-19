@@ -105,7 +105,7 @@ function App() {
           </Box>
         </Container>
       </TopBar>
-      <BottomBar counterTasks={todoItems.length} /> {/* Допилить счетчик*/}
+      <BottomBar counterTasks={todoItems} /> {/* Допилить счетчик*/}
     </>
   );
 }

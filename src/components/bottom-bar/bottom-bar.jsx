@@ -31,6 +31,10 @@ const useStyles = makeStyles(theme => ({
 
 export default function BottomBar({ counterTasks }) {
   const classes = useStyles();
+  const allTasks = counterTasks.length; // Всего задач
+  const doneTasks = counterTasks.filter(item => {
+    return item.checked === true;
+  }).length;
 
   return (
     <>
@@ -44,7 +48,9 @@ export default function BottomBar({ counterTasks }) {
             <AddIcon />
           </Fab>
           <div className={classes.grow} />
-          <Typography variant="body1">Tasks: {counterTasks}</Typography>
+          <Typography variant="body1">
+            Done: {doneTasks}/{allTasks}
+          </Typography>
         </Toolbar>
       </AppBar>
     </>
