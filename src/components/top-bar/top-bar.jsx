@@ -31,6 +31,9 @@ HideOnScroll.propTypes = {
 const useStyles = makeStyles(theme => ({
   button: {
     marginLeft: "auto"
+  },
+  container: {
+    padding: 0
   }
 }));
 
@@ -56,7 +59,7 @@ export default function TopBar(props) {
         </AppBar>
       </HideOnScroll>
       <Toolbar />
-      <Container>{props.children}</Container>
+      <Container className={classes.container}>{props.children}</Container>
     </React.Fragment>
   );
 }

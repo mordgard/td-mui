@@ -96,7 +96,7 @@ function App() {
       <CssBaseline />
       <TopBar>
         <Container maxWidth="sm">
-          <Box mt={2} mb={8}>
+          <Box mt={2} mb={8} p={0}>
             <TodoList
               todoItems={todoItems}
               toggleCheck={handleToggleCheck}
@@ -105,7 +105,7 @@ function App() {
           </Box>
         </Container>
       </TopBar>
-      <BottomBar counterTasks={todoItems} /> {/* Допилить счетчик*/}
+      <BottomBar counterTasks={todoItems} />
     </>
   );
 }
