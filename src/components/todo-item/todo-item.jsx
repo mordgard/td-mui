@@ -9,6 +9,9 @@ import Switch from "@material-ui/core/Switch";
 import Checkbox from "@material-ui/core/Checkbox";
 import Paper from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
+import blue from "@material-ui/core/colors/blue";
+
+const importantColor = blue[100];
 
 export default function TodoItem({
   id,
@@ -21,7 +24,9 @@ export default function TodoItem({
   return (
     <Box mb={1}>
       <Paper>
-        <ListItem>
+        <ListItem
+          style={isImportant ? { backgroundColor: importantColor } : null}
+        >
           <Checkbox
             checked={checked}
             onChange={toggleCheck}
@@ -30,7 +35,11 @@ export default function TodoItem({
               "aria-label": "primary checkbox"
             }}
           />
-          <ListItemText id="switch-list-label-bluetooth" primary={text} />
+          <ListItemText
+            id="switch-list-label-bluetooth"
+            primary={text}
+            style={checked ? { textDecoration: "line-through" } : null}
+          />
           <ListItemSecondaryAction>
             <Switch
               edge="end"

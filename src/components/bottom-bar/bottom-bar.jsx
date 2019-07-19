@@ -9,6 +9,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Fab from "@material-ui/core/Fab";
 import AddIcon from "@material-ui/icons/Add";
 import SearchIcon from "@material-ui/icons/Search";
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -28,7 +29,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function BottomBar() {
+export default function BottomBar({ counterTasks }) {
   const classes = useStyles();
 
   return (
@@ -43,6 +44,7 @@ export default function BottomBar() {
             <AddIcon />
           </Fab>
           <div className={classes.grow} />
+          <Typography variant="body1">Tasks: {counterTasks}</Typography>
         </Toolbar>
       </AppBar>
     </>

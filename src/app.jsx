@@ -59,7 +59,7 @@ function App() {
           />
         </Box>
       </Container>
-      <BottomBar />
+      <BottomBar counterTasks={todoItems.length} /> {/* Допилить счетчик*/}
     </>
   );
 }
