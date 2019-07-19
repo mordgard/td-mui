@@ -27,16 +27,8 @@ export default function TodoItem({
         <ListItem
           style={isImportant ? { backgroundColor: importantColor } : null}
         >
-          <Checkbox
-            checked={checked}
-            onChange={toggleCheck}
-            value="checkedA"
-            inputProps={{
-              "aria-label": "primary checkbox"
-            }}
-          />
+          <Checkbox checked={checked} onChange={toggleCheck} />
           <ListItemText
-            id="switch-list-label-bluetooth"
             primary={text}
             style={checked ? { textDecoration: "line-through" } : null}
           />
