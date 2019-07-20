@@ -96,6 +96,19 @@ function App() {
     setTodoItems(updatedState);
   };
 
+  const handleAdd = text => {
+    const updatedState = [
+      ...todoItems,
+      {
+        id: ID(),
+        text: text,
+        isDone: false,
+        isImportant: false
+      }
+    ];
+    setTodoItems(updatedState);
+  };
+
   return (
     <>
       <CssBaseline />
@@ -110,7 +123,7 @@ function App() {
           </Box>
         </Container>
       </TopBar>
-      <BottomBar counterTasks={todoItems} />
+      <BottomBar counterTasks={todoItems} onAdd={handleAdd} />
     </>
   );
 }

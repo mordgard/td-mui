@@ -9,8 +9,7 @@ import List from "@material-ui/core/List";
 export default function TodoList({ todoItems, toggleCheck, toggleImportant }) {
   return (
     <List>
-      {todoItems.map(item => {
-        const { id, text, checked, isImportant } = item;
+      {todoItems.map(({ id, text, checked, isImportant }) => {
         return (
           <TodoItem
             key={id}
