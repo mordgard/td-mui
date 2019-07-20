@@ -22,30 +22,6 @@ function App() {
     {
       id: ID(),
       text: "some text",
-      checked: true,
-      isImportant: false
-    },
-    {
-      id: ID(),
-      text: "some text",
-      checked: false,
-      isImportant: true
-    },
-    {
-      id: ID(),
-      text: "some text",
-      checked: false,
-      isImportant: false
-    },
-    {
-      id: ID(),
-      text: "some text",
-      checked: false,
-      isImportant: false
-    },
-    {
-      id: ID(),
-      text: "some text",
       checked: false,
       isImportant: false
     },
@@ -64,7 +40,31 @@ function App() {
     {
       id: ID(),
       text: "some text",
-      checked: true,
+      checked: false,
+      isImportant: false
+    },
+    {
+      id: ID(),
+      text: "some text",
+      checked: false,
+      isImportant: false
+    },
+    {
+      id: ID(),
+      text: "some text",
+      checked: false,
+      isImportant: true
+    },
+    {
+      id: ID(),
+      text: "some text",
+      checked: false,
+      isImportant: false
+    },
+    {
+      id: ID(),
+      text: "some text",
+      checked: false,
       isImportant: false
     },
     {

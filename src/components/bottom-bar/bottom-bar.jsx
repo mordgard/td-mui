@@ -36,8 +36,9 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function BottomBar({ counterTasks }) {
+export default function BottomBar({ counterTasks, onInputChange }) {
   const [open, setOpen] = useState(false);
+  const [inputValue, setInputValue] = useState("");
   const classes = useStyles();
   const allTasks = counterTasks.length; // Всего задач
   const doneTasks = counterTasks.filter(item => {
@@ -50,6 +51,10 @@ export default function BottomBar({ counterTasks }) {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleChange = e => {
+    setInputValue(e.target.value);
   };
 
   return (
@@ -88,7 +93,9 @@ export default function BottomBar({ counterTasks }) {
             id="name"
             label="Task"
             type="email"
+            value={inputValue}
             fullWidth
+            onChange={e => handleChange(e)}
           />
         </DialogContent>
         <DialogActions>
