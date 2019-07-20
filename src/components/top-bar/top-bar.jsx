@@ -39,6 +39,10 @@ const useStyles = makeStyles(theme => ({
 
 export default function TopBar(props) {
   const classes = useStyles();
+  const items = props.itemsStatus;
+  const isSomeChecked = () => {
+    return items.some(item => item.checked === true);
+  };
 
   return (
     <React.Fragment>
@@ -51,7 +55,8 @@ export default function TopBar(props) {
               variant="contained"
               color="secondary"
               className={classes.button}
-              // disabled
+              onClick={props.onDelete}
+              disabled={isSomeChecked() ? false : true}
             >
               Delete Selected
             </Button>

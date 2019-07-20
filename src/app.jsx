@@ -15,61 +15,61 @@ function App() {
   const [todoItems, setTodoItems] = useState([
     {
       id: ID(),
-      text: "first text",
+      text: "some text",
       checked: false,
       isImportant: false
     },
     {
       id: ID(),
-      text: "second text",
+      text: "some text",
       checked: true,
       isImportant: false
     },
     {
       id: ID(),
-      text: "third text",
+      text: "some text",
       checked: false,
       isImportant: true
     },
     {
       id: ID(),
-      text: "third text",
+      text: "some text",
       checked: false,
       isImportant: false
     },
     {
       id: ID(),
-      text: "third text",
+      text: "some text",
       checked: false,
       isImportant: false
     },
     {
       id: ID(),
-      text: "third text",
+      text: "some text",
       checked: false,
       isImportant: false
     },
     {
       id: ID(),
-      text: "third text",
+      text: "some text",
       checked: false,
       isImportant: true
     },
     {
       id: ID(),
-      text: "third text",
+      text: "some text",
       checked: false,
       isImportant: false
     },
     {
       id: ID(),
-      text: "third text",
+      text: "some text",
       checked: true,
       isImportant: false
     },
     {
       id: ID(),
-      text: "third text",
+      text: "some text",
       checked: false,
       isImportant: false
     }
@@ -91,10 +91,15 @@ function App() {
     setTodoItems(updatedState);
   };
 
+  const handleDelete = () => {
+    const updatedState = todoItems.filter(item => item.checked !== true);
+    setTodoItems(updatedState);
+  };
+
   return (
     <>
       <CssBaseline />
-      <TopBar>
+      <TopBar onDelete={handleDelete} itemsStatus={todoItems}>
         <Container maxWidth="sm">
           <Box mt={2} mb={8} p={0}>
             <TodoList

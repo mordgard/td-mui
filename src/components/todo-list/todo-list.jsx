@@ -4,7 +4,6 @@ import React from "react";
 import TodoItem from "../todo-item/todo-item";
 
 // Material UI
-import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 
 export default function TodoList({ todoItems, toggleCheck, toggleImportant }) {
