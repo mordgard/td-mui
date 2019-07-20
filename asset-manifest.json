@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-gh-pages/static/css/main.34de6062.chunk.css",
-    "main.js": "/react-gh-pages/static/js/main.25cc9c9c.chunk.js",
-    "main.js.map": "/react-gh-pages/static/js/main.25cc9c9c.chunk.js.map",
-    "runtime~main.js": "/react-gh-pages/static/js/runtime~main.ac2d5040.js",
-    "runtime~main.js.map": "/react-gh-pages/static/js/runtime~main.ac2d5040.js.map",
-    "static/js/2.11930009.chunk.js": "/react-gh-pages/static/js/2.11930009.chunk.js",
-    "static/js/2.11930009.chunk.js.map": "/react-gh-pages/static/js/2.11930009.chunk.js.map",
-    "index.html": "/react-gh-pages/index.html",
-    "precache-manifest.1d1a1f526c2e737397565bb9070b5b81.js": "/react-gh-pages/precache-manifest.1d1a1f526c2e737397565bb9070b5b81.js",
-    "service-worker.js": "/react-gh-pages/service-worker.js",
-    "static/css/main.34de6062.chunk.css.map": "/react-gh-pages/static/css/main.34de6062.chunk.css.map"
+    "main.css": "/td-mui/static/css/main.34de6062.chunk.css",
+    "main.js": "/td-mui/static/js/main.25cc9c9c.chunk.js",
+    "main.js.map": "/td-mui/static/js/main.25cc9c9c.chunk.js.map",
+    "runtime~main.js": "/td-mui/static/js/runtime~main.a0943afc.js",
+    "runtime~main.js.map": "/td-mui/static/js/runtime~main.a0943afc.js.map",
+    "static/js/2.11930009.chunk.js": "/td-mui/static/js/2.11930009.chunk.js",
+    "static/js/2.11930009.chunk.js.map": "/td-mui/static/js/2.11930009.chunk.js.map",
+    "index.html": "/td-mui/index.html",
+    "precache-manifest.1535622534fa58f0f23b2475f4dd826b.js": "/td-mui/precache-manifest.1535622534fa58f0f23b2475f4dd826b.js",
+    "service-worker.js": "/td-mui/service-worker.js",
+    "static/css/main.34de6062.chunk.css.map": "/td-mui/static/css/main.34de6062.chunk.css.map"
   }
 }
