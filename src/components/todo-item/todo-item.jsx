@@ -1,7 +1,6 @@
 import React from "react";
 
 // Material UI
-import { makeStyles } from "@material-ui/core/styles";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -15,9 +14,9 @@ const importantColor = blue[100];
 
 export default function TodoItem({
   id,
-  text,
-  checked,
-  isImportant,
+  text = "",
+  checked = false,
+  isImportant = false,
   toggleCheck,
   toggleImportant
 }) {
@@ -37,7 +36,6 @@ export default function TodoItem({
               edge="end"
               onChange={toggleImportant}
               checked={isImportant}
-              inputProps={{ "aria-labelledby": "switch-list-label-bluetooth" }}
             />
           </ListItemSecondaryAction>
         </ListItem>

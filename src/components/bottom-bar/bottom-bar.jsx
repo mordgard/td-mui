@@ -38,7 +38,7 @@ export default function BottomBar({ counterTasks, onAdd }) {
   const [open, setOpen] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const classes = useStyles();
-  const allTasks = counterTasks.length; // Всего задач
+  const allTasks = counterTasks.length;
   const doneTasks = counterTasks.filter(item => {
     return item.checked === true;
   }).length;
