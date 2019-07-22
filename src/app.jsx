@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import ID from "./utils/id-generator";
 
 // Components
