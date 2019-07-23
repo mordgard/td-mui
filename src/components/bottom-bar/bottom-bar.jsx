@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { addTodo } from "../../actions/todos";
 
 // Material UI
 import { makeStyles } from "@material-ui/core/styles";
@@ -34,12 +36,12 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function BottomBar({ counterTasks, onAdd }) {
+function BottomBar({ onAdd, dispatch, state }) {
   const [open, setOpen] = useState(false);
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState("asd");
   const classes = useStyles();
-  const allTasks = counterTasks.length;
-  const doneTasks = counterTasks.filter(item => {
+  const allTasks = state.length;
+  const doneTasks = state.filter(item => {
     return item.checked === true;
   }).length;
 
@@ -102,9 +104,10 @@ export default function BottomBar({ counterTasks, onAdd }) {
           </Button>
           <Button
             onClick={() => {
-              onAdd(inputValue);
-              handleClose();
-              setInputValue("");
+              // onAdd(inputValue);
+              // handleClose();
+              // setInputValue("");
+              dispatch(addTodo(inputValue));
             }}
             color="primary"
           >
@@ -115,3 +118,11 @@ export default function BottomBar({ counterTasks, onAdd }) {
     </>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    state: state
+  };
+};
+
+export default connect(mapStateToProps)(BottomBar);

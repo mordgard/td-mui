@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
 import ID from "./utils/id-generator";
 
 // Components
@@ -13,89 +12,7 @@ import TodoList from "./components/todo-list/todo-list";
 import Box from "@material-ui/core/Box";
 
 function App() {
-  const [todoItems, setTodoItems] = useState([
-    {
-      id: ID(),
-      text: "some text",
-      checked: false,
-      isImportant: false
-    },
-    {
-      id: ID(),
-      text: "some text",
-      checked: false,
-      isImportant: false
-    },
-    {
-      id: ID(),
-      text: "some text",
-      checked: false,
-      isImportant: true
-    },
-    {
-      id: ID(),
-      text: "some text",
-      checked: false,
-      isImportant: false
-    },
-    {
-      id: ID(),
-      text: "some text",
-      checked: false,
-      isImportant: false
-    },
-    {
-      id: ID(),
-      text: "some text",
-      checked: false,
-      isImportant: false
-    },
-    {
-      id: ID(),
-      text: "some text",
-      checked: false,
-      isImportant: true
-    },
-    {
-      id: ID(),
-      text: "some text",
-      checked: false,
-      isImportant: false
-    },
-    {
-      id: ID(),
-      text: "some text",
-      checked: false,
-      isImportant: false
-    },
-    {
-      id: ID(),
-      text: "some text",
-      checked: false,
-      isImportant: false
-    }
-  ]);
-
-  const handleToggleCheck = id => {
-    const updatedState = todoItems.map(item => {
-      if (item.id === id) item.checked = !item.checked;
-      return item;
-    });
-    setTodoItems(updatedState);
-  };
-
-  const handleToggleImportant = id => {
-    const updatedState = todoItems.map(item => {
-      if (item.id === id) item.isImportant = !item.isImportant;
-      return item;
-    });
-    setTodoItems(updatedState);
-  };
-
-  const handleDelete = () => {
-    const updatedState = todoItems.filter(item => item.checked !== true);
-    setTodoItems(updatedState);
-  };
+  const [todoItems, setTodoItems] = useState([]);
 
   const handleAdd = text => {
     const updatedState = [
@@ -113,18 +30,14 @@ function App() {
   return (
     <>
       <CssBaseline />
-      <TopBar onDelete={handleDelete} itemsStatus={todoItems}>
+      <TopBar>
         <Container maxWidth="sm">
           <Box mt={2} mb={8} p={0}>
-            <TodoList
-              todoItems={todoItems}
-              toggleCheck={handleToggleCheck}
-              toggleImportant={handleToggleImportant}
-            />
+            <TodoList />
           </Box>
         </Container>
       </TopBar>
-      <BottomBar counterTasks={todoItems} onAdd={handleAdd} />
+      <BottomBar onAdd={handleAdd} />
     </>
   );
 }

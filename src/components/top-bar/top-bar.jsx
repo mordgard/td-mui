@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import { deleteTodo } from "../../actions/todos";
 
 // Material UI
 import PropTypes from "prop-types";
@@ -37,17 +39,16 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function TopBar(props) {
+function TopBar({ children, dispatch, state }) {
   const classes = useStyles();
-  const items = props.itemsStatus;
   const isSomeChecked = () => {
-    return items.some(item => item.checked === true);
+    return state.some(item => item.checked === true);
   };
 
   return (
     <React.Fragment>
       <CssBaseline />
-      <HideOnScroll {...props}>
+      <HideOnScroll children={children}>
         <AppBar color="default">
           <Toolbar>
             <Typography variant="h6">Todo List</Typography>
@@ -55,7 +56,7 @@ export default function TopBar(props) {
               variant="contained"
               color="secondary"
               className={classes.button}
-              onClick={props.onDelete}
+              onClick={() => dispatch(deleteTodo())}
               disabled={isSomeChecked() ? false : true}
             >
               Delete Selected
@@ -64,7 +65,15 @@ export default function TopBar(props) {
         </AppBar>
       </HideOnScroll>
       <Toolbar />
-      <Container className={classes.container}>{props.children}</Container>
+      <Container className={classes.container}>{children}</Container>
     </React.Fragment>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    state: state
+  };
+};
+
+export default connect(mapStateToProps)(TopBar);
