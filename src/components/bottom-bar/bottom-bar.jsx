@@ -36,9 +36,9 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function BottomBar({ onAdd, dispatch, state }) {
+function BottomBar({ dispatch, state }) {
   const [open, setOpen] = useState(false);
-  const [inputValue, setInputValue] = useState("asd");
+  const [inputValue, setInputValue] = useState("");
   const classes = useStyles();
   const allTasks = state.length;
   const doneTasks = state.filter(item => {
@@ -104,9 +104,8 @@ function BottomBar({ onAdd, dispatch, state }) {
           </Button>
           <Button
             onClick={() => {
-              // onAdd(inputValue);
-              // handleClose();
-              // setInputValue("");
+              handleClose();
+              setInputValue("");
               dispatch(addTodo(inputValue));
             }}
             color="primary"

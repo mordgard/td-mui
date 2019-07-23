@@ -16,8 +16,8 @@ import blue from "@material-ui/core/colors/blue";
 const importantColor = blue[100];
 
 function TodoItem({ id, text = "", dispatch, state }) {
-  const checked = state.find(item => item.id === id).checked;
-  const isImportant = state.find(item => item.id === id).isImportant;
+  const checked = state.find(item => item.id === id).checked || false;
+  const isImportant = state.find(item => item.id === id).isImportant || false;
 
   return (
     <Box mb={1}>

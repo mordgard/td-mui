@@ -88,7 +88,15 @@ function reducer(state = initialState, action) {
       return [...newState];
 
     case ADD_TODO:
-      return console.log(action.text);
+      return [
+        ...state,
+        {
+          id: ID(),
+          text: action.text,
+          isDone: false,
+          isImportant: false
+        }
+      ];
 
     default:
       return state;

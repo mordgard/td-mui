@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import ID from "./utils/id-generator";
+import React from "react";
 
 // Components
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -12,21 +11,6 @@ import TodoList from "./components/todo-list/todo-list";
 import Box from "@material-ui/core/Box";
 
 function App() {
-  const [todoItems, setTodoItems] = useState([]);
-
-  const handleAdd = text => {
-    const updatedState = [
-      ...todoItems,
-      {
-        id: ID(),
-        text: text,
-        isDone: false,
-        isImportant: false
-      }
-    ];
-    setTodoItems(updatedState);
-  };
-
   return (
     <>
       <CssBaseline />
@@ -37,7 +21,7 @@ function App() {
           </Box>
         </Container>
       </TopBar>
-      <BottomBar onAdd={handleAdd} />
+      <BottomBar />
     </>
   );
 }
