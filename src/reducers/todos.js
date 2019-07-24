@@ -92,8 +92,8 @@ function todos(state = initialState, action) {
         ? [
             ...state,
             {
-              id: ID(),
-              text: action.payload,
+              id: action.payload.id,
+              text: action.payload.text,
               isDone: false,
               isImportant: false
             }

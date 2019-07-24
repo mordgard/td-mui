@@ -1,3 +1,5 @@
+import ID from "../utils/id-generator";
+
 export const TOGGLE_COMPLETE = "TOGGLE_COMPLETE";
 export const TOGGLE_IMPORTANT = "TOGGLE_IMPORTANT";
 export const DELETE_TODO = "DELETE_TODO";
@@ -14,7 +16,10 @@ export function toggleImportant(id) {
 }
 
 export function addTodo(text) {
-  const payload = text;
+  const payload = {
+    id: ID(),
+    text: text
+  };
   return { type: ADD_TODO, payload };
 }
 
