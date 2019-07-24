@@ -94,7 +94,7 @@ function todos(state = initialState, action) {
             {
               id: action.payload.id,
               text: action.payload.text,
-              isDone: false,
+              checked: false,
               isImportant: false
             }
           ]
