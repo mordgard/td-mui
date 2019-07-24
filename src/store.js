@@ -1,6 +1,9 @@
 import { createStore } from "redux";
-import reducer from "./reducers/reducer";
+import todos from "./reducers/todos";
 
-const store = createStore(reducer);
+const store = createStore(
+  todos,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 export default store;

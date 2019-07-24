@@ -4,7 +4,6 @@ import { addTodo } from "../../actions/todos";
 
 // Material UI
 import { makeStyles } from "@material-ui/core/styles";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
@@ -59,7 +58,6 @@ function BottomBar({ dispatch, state }) {
 
   return (
     <>
-      <CssBaseline />
       <AppBar position="fixed" color="primary" className={classes.appBar}>
         <Toolbar>
           <IconButton color="inherit">

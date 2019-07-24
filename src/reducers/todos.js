@@ -69,18 +69,18 @@ const initialState = [
   }
 ];
 
-function reducer(state = initialState, action) {
+function todos(state = initialState, action) {
   switch (action.type) {
     case TOGGLE_IMPORTANT:
       return state.map(item =>
-        item.id === action.id
+        item.id === action.payload
           ? { ...item, isImportant: !item.isImportant }
           : item
       );
 
     case TOGGLE_COMPLETE:
       return state.map(item =>
-        item.id === action.id ? { ...item, checked: !item.checked } : item
+        item.id === action.payload ? { ...item, checked: !item.checked } : item
       );
 
     case DELETE_TODO:
@@ -88,19 +88,21 @@ function reducer(state = initialState, action) {
       return [...newState];
 
     case ADD_TODO:
-      return [
-        ...state,
-        {
-          id: ID(),
-          text: action.text,
-          isDone: false,
-          isImportant: false
-        }
-      ];
+      return action.payload
+        ? [
+            ...state,
+            {
+              id: ID(),
+              text: action.payload,
+              isDone: false,
+              isImportant: false
+            }
+          ]
+        : state;
 
     default:
       return state;
   }
 }
 
-export default reducer;
+export default todos;
