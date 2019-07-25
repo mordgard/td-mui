@@ -88,7 +88,7 @@ function todos(state = initialState, action) {
       return [...newState];
 
     case ADD_TODO:
-      return action.payload
+      return action.payload.text
         ? [
             ...state,
             {

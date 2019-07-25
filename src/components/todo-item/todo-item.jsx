@@ -1,7 +1,8 @@
 import React from "react";
+import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { toggleComplete } from "../../actions/todos";
-import { toggleImportant } from "../../actions/todos";
+
+import { toggleComplete, toggleImportant } from "../../actions/todos";
 
 // Material UI
 import ListItem from "@material-ui/core/ListItem";
@@ -15,7 +16,7 @@ import blue from "@material-ui/core/colors/blue";
 
 const importantColor = blue[100];
 
-function TodoItem({ id, text = "", dispatch, state }) {
+function TodoItem({ id, text = "", state, toggleImportant, toggleComplete }) {
   const checked = state.find(item => item.id === id).checked || false;
   const isImportant = state.find(item => item.id === id).isImportant || false;
 
@@ -25,10 +26,7 @@ function TodoItem({ id, text = "", dispatch, state }) {
         <ListItem
           style={isImportant ? { backgroundColor: importantColor } : null}
         >
-          <Checkbox
-            checked={checked}
-            onChange={() => dispatch(toggleComplete(id))}
-          />
+          <Checkbox checked={checked} onChange={() => toggleComplete(id)} />
           <ListItemText
             primary={text}
             style={checked ? { textDecoration: "line-through" } : null}
@@ -36,7 +34,7 @@ function TodoItem({ id, text = "", dispatch, state }) {
           <ListItemSecondaryAction>
             <Switch
               edge="end"
-              onChange={() => dispatch(toggleImportant(id))}
+              onChange={() => toggleImportant(id)}
               checked={isImportant}
             />
           </ListItemSecondaryAction>
@@ -52,4 +50,10 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(TodoItem);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ toggleComplete, toggleImportant }, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TodoItem);

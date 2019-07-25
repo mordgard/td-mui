@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { addTodo } from "../../actions/todos";
 
@@ -35,7 +36,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function BottomBar({ dispatch, state }) {
+function BottomBar({ state, addTodo }) {
   const [open, setOpen] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const classes = useStyles();
@@ -104,7 +105,7 @@ function BottomBar({ dispatch, state }) {
             onClick={() => {
               handleClose();
               setInputValue("");
-              dispatch(addTodo(inputValue));
+              addTodo(inputValue);
             }}
             color="primary"
           >
@@ -122,4 +123,10 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(BottomBar);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ addTodo }, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(BottomBar);
