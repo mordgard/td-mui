@@ -95,8 +95,8 @@ function BottomBar({ state, addTodo }) {
             autoFocus
             margin="dense"
             id="name"
-            label="Task"
-            type="email"
+            label="Add new task"
+            type="text"
             value={inputValue}
             fullWidth
             onChange={e => handleChange(e)}

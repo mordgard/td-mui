@@ -1,4 +1,5 @@
 import {
+  FETCH_TODOS,
   TOGGLE_COMPLETE,
   TOGGLE_IMPORTANT,
   DELETE_TODO,
@@ -19,7 +20,7 @@ const initialState = [
     text: "Lorem ipsum dolor",
     checked: false,
     isImportant: false,
-    isLoading: true
+    isLoading: false
   },
   {
     id: ID(),
@@ -32,6 +33,9 @@ const initialState = [
 
 function todos(state = initialState, action) {
   switch (action.type) {
+    case FETCH_TODOS:
+      return state;
+
     case TOGGLE_IMPORTANT:
       return state.map(item =>
         item.id === action.payload

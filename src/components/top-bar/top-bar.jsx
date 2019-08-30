@@ -1,4 +1,5 @@
 import React from "react";
+import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
 // Material UI
@@ -11,6 +12,7 @@ import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 import Info from "@material-ui/icons/Info";
 import Done from "@material-ui/icons/DoneAll";
+import Visibility from "@material-ui/icons/VisibilityOff";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Container from "@material-ui/core/Container";
 import Slide from "@material-ui/core/Slide";
@@ -40,7 +42,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function TopBar({ children, dispatch, state }) {
+function TopBar({ children, state }) {
   const classes = useStyles();
 
   const isSomeChecked = () => {
@@ -53,29 +55,31 @@ function TopBar({ children, dispatch, state }) {
         <AppBar color="default">
           <Toolbar>
             <Tooltip title="Show important">
-              <IconButton color="default">
-                <Info />
-              </IconButton>
+              <Box>
+                <IconButton disabled={false} color="default">
+                  <Info />
+                </IconButton>
+              </Box>
             </Tooltip>
             <Tooltip title="Show completed">
-              <IconButton color="default">
-                <Done />
-              </IconButton>
+              <Box>
+                <IconButton disabled={false} color="default">
+                  <Done />
+                </IconButton>
+              </Box>
             </Tooltip>
-            {/* <Button
-              variant="contained"
-              color="secondary"
-              className={classes.button}
-              onClick={() => dispatch(deleteTodo())}
-              disabled={isSomeChecked() ? false : true}
-            >
-              Delete Selected
-            </Button> */}
+            <Tooltip title="Hide all">
+              <Box>
+                <IconButton disabled={false} color="default">
+                  <Visibility />
+                </IconButton>
+              </Box>
+            </Tooltip>
             <Tooltip title="Delete selected">
               <Box ml="auto">
                 <IconButton
                   color="secondary"
-                  onClick={() => dispatch(deleteTodo())}
+                  onClick={() => deleteTodo()}
                   disabled={isSomeChecked() ? false : true}
                 >
                   <DeleteIcon />
@@ -97,4 +101,10 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(TopBar);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ deleteTodo }, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TopBar);
