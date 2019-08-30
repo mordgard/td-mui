@@ -1,17 +1,25 @@
 import React from "react";
 import { connect } from "react-redux";
 
+// Material UI
+import List from "@material-ui/core/List";
+import Box from "@material-ui/core/Box";
+import CircularProgress from "@material-ui/core/CircularProgress";
+
 // Components
 import TodoItem from "../todo-item/todo-item";
 
-// Material UI
-import List from "@material-ui/core/List";
-
-function TodoList({ state }) {
+function TodoList({ todos }) {
   return (
     <List>
-      {state.map(({ id, text }) => {
-        return <TodoItem key={id} id={id} text={text} />;
+      {todos.map(({ id, text, isLoading }) => {
+        return isLoading ? (
+          <Box key={id} display="flex" justifyContent="center" mb={1}>
+            <CircularProgress />
+          </Box>
+        ) : (
+          <TodoItem key={id} id={id} text={text} />
+        );
       })}
     </List>
   );
@@ -19,7 +27,7 @@ function TodoList({ state }) {
 
 const mapStateToProps = state => {
   return {
-    state: state
+    todos: state
   };
 };
 

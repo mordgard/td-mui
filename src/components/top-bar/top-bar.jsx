@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { deleteTodo } from "../../actions/todos";
 
 // Material UI
 import PropTypes from "prop-types";
@@ -12,6 +11,8 @@ import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Container from "@material-ui/core/Container";
 import Slide from "@material-ui/core/Slide";
 import Button from "@material-ui/core/Button";
+
+import { deleteTodo } from "../../actions/todos";
 
 function HideOnScroll(props) {
   const { children, window } = props;
@@ -40,6 +41,7 @@ const useStyles = makeStyles(theme => ({
 
 function TopBar({ children, dispatch, state }) {
   const classes = useStyles();
+
   const isSomeChecked = () => {
     return state.some(item => item.checked === true);
   };
@@ -49,7 +51,7 @@ function TopBar({ children, dispatch, state }) {
       <HideOnScroll children={children}>
         <AppBar color="default">
           <Toolbar>
-            <Typography variant="h6">Todo List</Typography>
+            <Typography variant="h6">TODO LIST</Typography>
             <Button
               variant="contained"
               color="secondary"

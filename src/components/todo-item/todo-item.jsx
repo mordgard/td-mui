@@ -2,8 +2,6 @@ import React from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
-import { toggleComplete, toggleImportant } from "../../actions/todos";
-
 // Material UI
 import ListItem from "@material-ui/core/ListItem";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
@@ -13,6 +11,9 @@ import Checkbox from "@material-ui/core/Checkbox";
 import Paper from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
 import blue from "@material-ui/core/colors/blue";
+import Tooltip from "@material-ui/core/Tooltip";
+
+import { toggleComplete, toggleImportant } from "../../actions/todos";
 
 const importantColor = blue[100];
 
@@ -26,17 +27,25 @@ function TodoItem({ id, text = "", state, toggleImportant, toggleComplete }) {
         <ListItem
           style={isImportant ? { backgroundColor: importantColor } : null}
         >
-          <Checkbox checked={checked} onChange={() => toggleComplete(id)} />
+          <Tooltip
+            title={checked ? "Unfulfilled" : "Completed"}
+            enterDelay={500}
+          >
+            <Checkbox checked={checked} onChange={() => toggleComplete(id)} />
+          </Tooltip>
+
           <ListItemText
             primary={text}
             style={checked ? { textDecoration: "line-through" } : null}
           />
           <ListItemSecondaryAction>
-            <Switch
-              edge="end"
-              onChange={() => toggleImportant(id)}
-              checked={isImportant}
-            />
+            <Tooltip title="Important" enterDelay={500}>
+              <Switch
+                edge="end"
+                onChange={() => toggleImportant(id)}
+                checked={isImportant}
+              />
+            </Tooltip>
           </ListItemSecondaryAction>
         </ListItem>
       </Paper>

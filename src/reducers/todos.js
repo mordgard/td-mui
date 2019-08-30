@@ -9,63 +9,24 @@ import ID from "../utils/id-generator";
 const initialState = [
   {
     id: ID(),
-    text: "some text",
+    text: "Lorem ipsum",
     checked: false,
-    isImportant: false
+    isImportant: false,
+    isLoading: false
   },
   {
     id: ID(),
-    text: "some text",
+    text: "Lorem ipsum dolor",
     checked: false,
-    isImportant: false
+    isImportant: false,
+    isLoading: true
   },
   {
     id: ID(),
-    text: "some text",
+    text: "Lorem ipsum dolor uiaos",
     checked: false,
-    isImportant: true
-  },
-  {
-    id: ID(),
-    text: "some text",
-    checked: false,
-    isImportant: false
-  },
-  {
-    id: ID(),
-    text: "some text",
-    checked: false,
-    isImportant: false
-  },
-  {
-    id: ID(),
-    text: "some text",
-    checked: false,
-    isImportant: false
-  },
-  {
-    id: ID(),
-    text: "some text",
-    checked: false,
-    isImportant: true
-  },
-  {
-    id: ID(),
-    text: "some text",
-    checked: false,
-    isImportant: false
-  },
-  {
-    id: ID(),
-    text: "some text",
-    checked: false,
-    isImportant: false
-  },
-  {
-    id: ID(),
-    text: "some text",
-    checked: false,
-    isImportant: false
+    isImportant: true,
+    isLoading: false
   }
 ];
 

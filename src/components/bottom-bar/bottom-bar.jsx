@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { addTodo } from "../../actions/todos";
 
 // Material UI
 import { makeStyles } from "@material-ui/core/styles";
@@ -17,6 +16,9 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import Button from "@material-ui/core/Button";
+import Tooltip from "@material-ui/core/Tooltip";
+
+import { addTodo } from "../../actions/todos";
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -61,17 +63,22 @@ function BottomBar({ state, addTodo }) {
     <>
       <AppBar position="fixed" color="primary" className={classes.appBar}>
         <Toolbar>
-          <IconButton color="inherit">
-            <SearchIcon />
-          </IconButton>
-          <Fab
-            color="secondary"
-            aria-label="Add"
-            className={classes.fabButton}
-            onClick={handleClickOpen}
-          >
-            <AddIcon />
-          </Fab>
+          <Tooltip title="Search" enterDelay={500}>
+            <IconButton color="inherit">
+              <SearchIcon />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="Add task" enterDelay={500}>
+            <Fab
+              color="secondary"
+              aria-label="Add"
+              className={classes.fabButton}
+              onClick={handleClickOpen}
+            >
+              <AddIcon />
+            </Fab>
+          </Tooltip>
+
           <div className={classes.grow} />
           <Typography variant="body1">
             Done: {doneTasks}/{allTasks}
@@ -108,6 +115,7 @@ function BottomBar({ state, addTodo }) {
               addTodo(inputValue);
             }}
             color="primary"
+            variant="contained"
           >
             Add
           </Button>
