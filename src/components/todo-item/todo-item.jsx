@@ -28,8 +28,8 @@ function TodoItem({ id, text = "", state, toggleImportant, toggleComplete }) {
           style={isImportant ? { backgroundColor: importantColor } : null}
         >
           <Tooltip
-            title={checked ? "Unfulfilled" : "Completed"}
-            enterDelay={500}
+            title={checked ? "Mark as incomplete" : "Mark as completed"}
+            enterDelay={1000}
           >
             <Checkbox checked={checked} onChange={() => toggleComplete(id)} />
           </Tooltip>
@@ -39,7 +39,7 @@ function TodoItem({ id, text = "", state, toggleImportant, toggleComplete }) {
             style={checked ? { textDecoration: "line-through" } : null}
           />
           <ListItemSecondaryAction>
-            <Tooltip title="Important" enterDelay={500}>
+            <Tooltip title="Mark as important" enterDelay={1000}>
               <Switch
                 edge="end"
                 onChange={() => toggleImportant(id)}

@@ -5,12 +5,16 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
+import Box from "@material-ui/core/Box";
 import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
+import IconButton from "@material-ui/core/IconButton";
+import DeleteIcon from "@material-ui/icons/Delete";
+import Info from "@material-ui/icons/Info";
+import Done from "@material-ui/icons/DoneAll";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Container from "@material-ui/core/Container";
 import Slide from "@material-ui/core/Slide";
-import Button from "@material-ui/core/Button";
+import Tooltip from "@material-ui/core/Tooltip";
 
 import { deleteTodo } from "../../actions/todos";
 
@@ -31,9 +35,6 @@ HideOnScroll.propTypes = {
 };
 
 const useStyles = makeStyles(theme => ({
-  button: {
-    marginLeft: "auto"
-  },
   container: {
     padding: 0
   }
@@ -51,8 +52,17 @@ function TopBar({ children, dispatch, state }) {
       <HideOnScroll children={children}>
         <AppBar color="default">
           <Toolbar>
-            <Typography variant="h6">TODO LIST</Typography>
-            <Button
+            <Tooltip title="Show important">
+              <IconButton color="default">
+                <Info />
+              </IconButton>
+            </Tooltip>
+            <Tooltip title="Show completed">
+              <IconButton color="default">
+                <Done />
+              </IconButton>
+            </Tooltip>
+            {/* <Button
               variant="contained"
               color="secondary"
               className={classes.button}
@@ -60,7 +70,18 @@ function TopBar({ children, dispatch, state }) {
               disabled={isSomeChecked() ? false : true}
             >
               Delete Selected
-            </Button>
+            </Button> */}
+            <Tooltip title="Delete selected">
+              <Box ml="auto">
+                <IconButton
+                  color="secondary"
+                  onClick={() => dispatch(deleteTodo())}
+                  disabled={isSomeChecked() ? false : true}
+                >
+                  <DeleteIcon />
+                </IconButton>
+              </Box>
+            </Tooltip>
           </Toolbar>
         </AppBar>
       </HideOnScroll>

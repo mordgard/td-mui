@@ -17,6 +17,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import Button from "@material-ui/core/Button";
 import Tooltip from "@material-ui/core/Tooltip";
+import Box from "@material-ui/core/Box";
 
 import { addTodo } from "../../actions/todos";
 
@@ -24,9 +25,6 @@ const useStyles = makeStyles(theme => ({
   appBar: {
     top: "auto",
     bottom: 0
-  },
-  grow: {
-    flexGrow: 1
   },
   fabButton: {
     position: "absolute",
@@ -63,12 +61,12 @@ function BottomBar({ state, addTodo }) {
     <>
       <AppBar position="fixed" color="primary" className={classes.appBar}>
         <Toolbar>
-          <Tooltip title="Search" enterDelay={500}>
+          <Tooltip title="Search" enterDelay={1000}>
             <IconButton color="inherit">
               <SearchIcon />
             </IconButton>
           </Tooltip>
-          <Tooltip title="Add task" enterDelay={500}>
+          <Tooltip title="Add task" enterDelay={1000}>
             <Fab
               color="secondary"
               aria-label="Add"
@@ -79,7 +77,7 @@ function BottomBar({ state, addTodo }) {
             </Fab>
           </Tooltip>
 
-          <div className={classes.grow} />
+          <Box flex={1} />
           <Typography variant="body1">
             Done: {doneTasks}/{allTasks}
           </Typography>
