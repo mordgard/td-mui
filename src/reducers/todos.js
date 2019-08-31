@@ -20,7 +20,7 @@ const initialState = [
     text: "Lorem ipsum dolor",
     checked: false,
     isImportant: false,
-    isLoading: false
+    isLoading: true
   },
   {
     id: ID(),

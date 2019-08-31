@@ -42,7 +42,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function TopBar({ children, state }) {
+function TopBar({ children, state, deleteTodo }) {
   const classes = useStyles();
 
   const isSomeChecked = () => {
@@ -50,7 +50,7 @@ function TopBar({ children, state }) {
   };
 
   return (
-    <React.Fragment>
+    <>
       <HideOnScroll children={children}>
         <AppBar color="default">
           <Toolbar>
@@ -91,7 +91,7 @@ function TopBar({ children, state }) {
       </HideOnScroll>
       <Toolbar />
       <Container className={classes.container}>{children}</Container>
-    </React.Fragment>
+    </>
   );
 }
 
@@ -101,8 +101,9 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch =>
-  bindActionCreators({ deleteTodo }, dispatch);
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({ deleteTodo }, dispatch);
+};
 
 export default connect(
   mapStateToProps,
